@@ -14,8 +14,8 @@ services:
 
   backend:
     build:
-      context: .              # 👈 CAMBIO: Raíz del proyecto
-      dockerfile: ./backend/Dockerfile  # 👈 Ruta al Dockerfile
+      context: .              # 👈 ESTO ES LO IMPORTANTE
+      dockerfile: ./backend/Dockerfile
     container_name: backend_container
     restart: always
     ports:
