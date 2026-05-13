@@ -71,7 +71,7 @@
     <script>
         // Función para enviar comandos al backend
         function send(command) {
-            fetch('/control?cmd=' + command)
+            fetch('/api/control?cmd=' + command)
                 .then(response => {
                     if(response.ok) actualizarLogs();
                 });
@@ -79,7 +79,7 @@
 
         // Actualiza el valor de humedad cada 2 segundos
         function actualizarHumedad() {
-            fetch('/get_humedad')
+            fetch('/api/get_humedad')
                 .then(res => res.text())
                 .then(h => {
                     document.getElementById('hum-val').innerText = h;
@@ -88,7 +88,7 @@
 
         // Trae los últimos logs desde la base de datos en AWS
         function actualizarLogs() {
-            fetch('/get_logs')
+            fetch('/api/get_logs')
                 .then(res => res.json())
                 .then(data => {
                     const tbody = document.getElementById('tabla-logs');
